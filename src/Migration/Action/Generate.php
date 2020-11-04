@@ -252,7 +252,7 @@ class Generate
                 $definition[] = "'scale' => " . $column->getScale();
             }
 
-            if ($column->getComment()) {
+            if (method_exists($column, 'getComment') && $column->getComment()) {
                 $definition[] = sprintf("'comment' => \"%s\"", $column->getComment());
             }
             
